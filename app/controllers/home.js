@@ -1,22 +1,22 @@
 module.exports = function() {
 
-   var controller = {}; // Objeto vazio
+    var controller = {}; // Objeto vazio
 
-   controller.index = function(req, res) {
-      res.render('index', {nome: 'Boomerang'});
-   }
+    controller.index = function(req, res) {
+        res.render('index', { nome: 'Controle de Atividades' });
+    }
 
-   controller.ajuda = function(req, res) {
-      res.render('ajuda');   
-   }
+    controller.ajuda = function(req, res) {
+        res.render('ajuda');
+    }
 
-   controller.login = function(req, res) {
-      res.render('login', {
-         nome: 'Boomerang',
-         mensagem: 'Informe seus dados para autenticaÃ§Ã£o'
-      });
-   }
+    controller.login = function(req, res) {
+        res.render('login', {
+            nome: 'Boomerang',
+            mensagem: 'Informe seus dados para autenticação'
+        });
+    }
 
-   return controller;
+    return controller;
 
 }

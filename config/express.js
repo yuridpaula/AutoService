@@ -1,46 +1,48 @@
 var express = require('express');
 var load = require('express-load');
+var consign = require('consign');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var cors = require('cors');
 
-
-//var home = require('../app/routes/home');
-
 module.exports = function() {
-   var app = express();
+    var app = express();
 
-   //app.use(express.static('./public'));
+    app.set('port', 3000);
+    app.set('ip', '127.0.0.1');
 
-   app.set('port', 3000);
-   app.set('ip', '127.0.0.1'); 
+    app.set('view engine', 'ejs');
+    app.set('views', './app/views');
 
-   app.set('view engine', 'ejs');
-   app.set('views', './app/views');
+    app.use(cors());
 
-   app.use(cors());
-   
-   /* RTA para fazer com que todos os navegadores
-      entendam os verbos HTTP DELETE e PUT.
-   */
-  app.use(bodyParser.urlencoded({extended: true}));
-  app.use(bodyParser.json());
-  app.use(methodOverride());
+    /* RTA para fazer com que todos os navegadores
+       entendam os verbos HTTP DELETE e PUT.
+    */
+    app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(bodyParser.json());
+    app.use(methodOverride());
 
-   //home(app);
+    /*
+       Carrega todos os módulos de app/models,
+       depois os módulos de app/controllers,
+       e, por fim, os módulos de app/routes,
+       "despejando" tudo na variável app
+    */
 
-   /*
-      Carrega todos os mÃ³dulos de app/models,
-      depois os mÃ³dulos de app/controllers,
-      e, por fim, os mÃ³dulos de app/routes,
-      "despejando" tudo na variÃ¡vel app
-   */
+    // cwd = change working directory
+    /*load('models', { cwd: 'app' })
+        .then('controllers')
+        .then('routes')
+        .into(app);
+    */
+    consign()
+        .include('app/routes')
+        //.then('config/database.js')
+        .then('app/controllers')
+        .then('app/models')
+        .into(app);
+    //*/
 
-   // cwd = change working directory
-   load('models', {cwd: 'app'})
-      .then('controllers')
-      .then('routes')
-      .into(app);
-
-   return app;
+    return app;
 };
