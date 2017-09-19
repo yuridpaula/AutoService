@@ -1,6 +1,5 @@
 var express = require('express');
 var load = require('express-load');
-var consign = require('consign');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var cors = require('cors');
@@ -23,6 +22,8 @@ module.exports = function() {
     app.use(bodyParser.json());
     app.use(methodOverride());
 
+    app.use(express.static('./app/public'));
+
     /*
        Carrega todos os módulos de app/models,
        depois os módulos de app/controllers,
@@ -31,18 +32,10 @@ module.exports = function() {
     */
 
     // cwd = change working directory
-    /*load('models', { cwd: 'app' })
+    load('models', { cwd: 'app' })
         .then('controllers')
         .then('routes')
         .into(app);
-    */
-    consign()
-        .include('app/routes')
-        //.then('config/database.js')
-        .then('app/controllers')
-        .then('app/models')
-        .into(app);
-    //*/
 
     return app;
 };
