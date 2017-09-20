@@ -13,9 +13,6 @@ module.exports = function() {
         estoque_atual: {
             type: Number,
             required: true
-        },
-        path: {
-            type: String
         }
     });
 

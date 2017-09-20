@@ -29,14 +29,14 @@
 
     <!-- Menu Principal da aplicação-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-        <a class="navbar-brand" href="index.html">Controle Atividades - Autônomo</a>
+        <a class="navbar-brand" href="index">Controle Atividades</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
                 <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="index">
                         <i class="fa fa-fw fa-dashboard"></i>
                         <span class="nav-link-text">
                 Dashboard</span>
@@ -50,13 +50,13 @@
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseComponents">
                         <li>
-                            <a href="cadastroProduto.html">Produtos</a>
+                            <a href="cadastroProduto">Produtos</a>
                         </li>
                         <li>
-                            <a href="cadastroIntegrantes.html">Integrantes</a>
+                            <a href="cadastroIntegrante">Integrantes</a>
                         </li>
                         <li>
-                            <a href="cadastroMovimentos.html">Movimentos</a>
+                            <a href="cadastroMovimento">Movimentos</a>
                         </li>
                     </ul>
                 </li>
@@ -64,17 +64,17 @@
                     <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-file"></i>
                         <span class="nav-link-text">
-              Relatórios</span>
+              Relatorios</span>
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseExamplePages">
                         <li>
-                            <a href="produtos.html">Produtos</a>
+                            <a href="produto">Produtos</a>
                         </li>
                         <li>
-                            <a href="integrantes.html">Intgrantes</a>
+                            <a href="integrante">Intgrantes</a>
                         </li>
                         <li>
-                            <a href="movimentos.html">Movimentos</a>
+                            <a href="movimento">Movimentos</a>
                         </li>
                     </ul>
                 </li>
@@ -131,7 +131,7 @@
                             <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item small" href="movimentos.html">
+                        <a class="dropdown-item small" href="movimentos">
                             <!-- chamar método diferente, para já trazer apenas os vencidos-->
                             Ver Todos Movimentos Vencidos
                         </a>
@@ -150,7 +150,7 @@
                     </form>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                    <a class="nav-link" data-toggle="modal" data-target="#logoutModal">
                         <i class="fa fa-fw fa-sign-out"></i> Logout
                     </a>
                 </li>
@@ -159,21 +159,21 @@
     </nav>
 
     <!-- Logout Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Pronto para Sair?</h5>
+                    <h5 class="modal-title" id="logoutModalLabel">Pronto para Sair?</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
                 </div>
                 <div class="modal-body">
-                    Selecione "Logout" para terminar essa sessão.
+                    Selecione "Logout" para terminar essa sess�o.
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="login">Logout</a>
                 </div>
             </div>
         </div>
@@ -191,7 +191,7 @@
             <!-- Breadcrumbs -->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="index.html">Dashboard</a>
+                    <a href="index">Dashboard</a>
                 </li>
             </ol>
 
@@ -272,10 +272,10 @@
             </div>
 
 
-            <!-- Area Chart Example -->
+            <!-- Grafico de area -->
             <div class="card mb-3">
                 <div class="card-header">
-                    <i class="fa fa-area-chart"></i> Vendas Diárias
+                    <i class="fa fa-area-chart"></i> Vendas Diarias
                 </div>
                 <div class="card-body">
                     <canvas id="myAreaChart" width="100%" height="30"></canvas>
@@ -283,7 +283,7 @@
             </div>
 
 
-            <!-- Example Bar Chart Card -->
+            <!-- grafico de barras -->
             <div class="card mb-3">
                 <div class="card-header">
                     <i class="fa fa-bar-chart"></i> Vendas Anual
@@ -300,10 +300,10 @@
 
             <div class="row">
                 <div class="col-lg-6">
-                    <!-- Example Pie Chart Card -->
+                    <!-- grafico de pizza -->
                     <div class="card mb-3">
                         <div class="card-header">
-                            <i class="fa fa-pie-chart"></i> Um gráfico legal aqui
+                            <i class="fa fa-pie-chart"></i> Um grafico legal aqui
                         </div>
                         <div class="card-body">
                             <canvas id="myPieChart" width="100%" height="100"></canvas>
@@ -311,7 +311,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <!-- Example Notifications Card -->
+                    <!-- notifica��es -->
                     <div class="card mb-3">
                         <div class="card-header">
                             <i class="fa fa-bell-o"></i> Feed de avisos importantes aqui
@@ -366,10 +366,10 @@
                 </div>
             </div>
 
-            <!-- Example Tables Card -->
+            <!-- Tabela -->
             <div class="card mb-3">
                 <div class="card-header">
-                    <i class="fa fa-table"></i> Data Table Example
+                    <i class="fa fa-table"></i> Tabela de dados
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -855,9 +855,6 @@
                         </table>
                     </div>
                 </div>
-                <div class="card-footer small text-muted">
-                    Updated yesterday at 11:59 PM
-                </div>
             </div>
 
         </div>
@@ -869,7 +866,7 @@
     <footer class="sticky-footer">
         <div class="container">
             <div class="text-center">
-                <small>Copyright &copy; Your Website 2017</small>
+                <small>Copyright &copy;Yuri Oliveira de Paula</small>
             </div>
         </div>
     </footer>
