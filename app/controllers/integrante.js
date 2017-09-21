@@ -1,39 +1,19 @@
 var listarIntegrante = (app, req, res) => {
-    var Integrante = app.models.Integrante;
-    Integrante.find().exec().then(
-        function(integrante) {
-            res.json(integrante);
-        },
-        function(erro) {
-            console.error(erro);
-            res.status(500).json(erro);
-        }
-    );
+    var model = app.controllers.genericDAO;
+
+    model.list(app, req, res, app.models.Integrante);
 }
 
 var inserirIntegrante = function(app, req, res) {
-    var Integrante = app.models.Integrante;
-    var dados = req.body;
+    var model = app.controllers.genericDAO;
 
-    Integrante.collection.insert(dados, function(err, data) {
-        if (data) {
-            return res.status(200).json({ 'status': 'OK', "id": dados._id });
-        }
-        return res.json(err);
-    });
-
+    model.insert(app, req, res, app.models.Integrante);
 }
 
 var selecionarPorId = function(app, req, res) {
-    var id = req.params.id;
-    var Integrante = app.models.Integrante;
-    Integrante.collection.find(id, function(err, data) {
-        if (data) {
-            return res.status(200).json(data);
-        }
-    });
+    var model = app.controllers.genericDAO;
 
-
+    model.getById(app, req, res, app.models.Integrante);
 }
 
 module.exports = {
