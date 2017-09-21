@@ -1,5 +1,5 @@
 var listarProduto = (app, req, res) => {
-    var Produto = app.app.models.Produto;
+    var Produto = app.models.Produto;
     Produto.find().exec().then(
         function(Produto) {
             res.json(Produto);
@@ -12,7 +12,7 @@ var listarProduto = (app, req, res) => {
 }
 
 var inserirProduto = function(app, req, res) {
-    var Produto = app.app.models.Produto;
+    var Produto = app.models.Produto;
     var dados = req.body;
 
     Produto.collection.insert(dados, function(err, data) {
@@ -26,7 +26,7 @@ var inserirProduto = function(app, req, res) {
 
 var selecionarPorId = function(app, req, res) {
     var id = req.params.id;
-    var Produto = app.app.models.Produto;
+    var Produto = app.models.Produto;
     Produto.collection.find(id, function(err, data) {
         if (data) {
             return res.status(200).json(data);

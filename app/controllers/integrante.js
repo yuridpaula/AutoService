@@ -1,5 +1,5 @@
 var listarIntegrante = (app, req, res) => {
-    var Integrante = app.app.models.Integrante;
+    var Integrante = app.models.Integrante;
     Integrante.find().exec().then(
         function(integrante) {
             res.json(integrante);
@@ -12,7 +12,7 @@ var listarIntegrante = (app, req, res) => {
 }
 
 var inserirIntegrante = function(app, req, res) {
-    var Integrante = app.app.models.Integrante;
+    var Integrante = app.models.Integrante;
     var dados = req.body;
 
     Integrante.collection.insert(dados, function(err, data) {
@@ -26,7 +26,7 @@ var inserirIntegrante = function(app, req, res) {
 
 var selecionarPorId = function(app, req, res) {
     var id = req.params.id;
-    var Integrante = app.app.models.Integrante;
+    var Integrante = app.models.Integrante;
     Integrante.collection.find(id, function(err, data) {
         if (data) {
             return res.status(200).json(data);

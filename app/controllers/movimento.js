@@ -1,5 +1,5 @@
 var listarMovimento = (app, req, res) => {
-    var Movimento = app.app.models.Movimento;
+    var Movimento = app.models.Movimento;
     Movimento.find().exec().then(
         function(Movimento) {
             res.json(Movimento);
@@ -12,7 +12,7 @@ var listarMovimento = (app, req, res) => {
 }
 
 var inserirMovimento = function(app, req, res) {
-    var Movimento = app.app.models.Movimento;
+    var Movimento = app.models.Movimento;
     var dados = req.body;
 
     Movimento.collection.insert(dados, function(err, data) {
@@ -26,7 +26,7 @@ var inserirMovimento = function(app, req, res) {
 
 var selecionarPorId = function(app, req, res) {
     var id = req.params.id;
-    var Movimento = app.app.models.Movimento;
+    var Movimento = app.models.Movimento;
     Movimento.collection.find(id, function(err, data) {
         if (data) {
             return res.status(200).json(data);
