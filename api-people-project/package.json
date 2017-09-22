@@ -1,0 +1,26 @@
+{
+  "name": "api-people",
+  "version": "1.0.0",
+  "description": "Gerenciador de entidades",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "/home/node/app/node_modules/.bin/nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fgcintra/boomerang-2017-2.git"
+  },
+  "author": "Tiago Domingos Cipriano",
+  "license": "GNU GENERAL PUBLIC LICENSE Version 3",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cors": "^2.8.4",
+    "express": "^4.15.4",
+    "express-load": "^1.1.16",
+    "method-override": "^2.3.9",
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.11.8",
+    "nodemon": "^1.12.1"
+  }
+}

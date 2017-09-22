@@ -1,6 +1,6 @@
 module.exports = function(app) {
 
-    var controller = app.controllers.movimento;
+    var controller = app.app.controllers.movimento;
 
     app.get('/movimento', function(req, res) {
         controller.listarmovimento(app, req, res);

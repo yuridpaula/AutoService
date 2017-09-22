@@ -1,39 +1,19 @@
-var listarProduto = (app, req, res) => {
-    var Produto = app.models.Produto;
-    Produto.find().exec().then(
-        function(Produto) {
-            res.json(Produto);
-        },
-        function(erro) {
-            console.error(erro);
-            res.status(500).json(erro);
-        }
-    );
+var listarProduto = function(app, req, res) {
+    var model = app.controllers.genericDAO;
+
+    model.list(app, req, res, app.models.Produto);
 }
 
 var inserirProduto = function(app, req, res) {
-    var Produto = app.models.Produto;
-    var dados = req.body;
+    var model = app.controllers.genericDAO;
 
-    Produto.collection.insert(dados, function(err, data) {
-        if (data) {
-            return res.status(200).json({ 'status': 'OK', "id": dados._id });
-        }
-        return res.json(err);
-    });
-
+    model.insert(app, req, res, app.models.Produto);
 }
 
 var selecionarPorId = function(app, req, res) {
-    var id = req.params.id;
-    var Produto = app.models.Produto;
-    Produto.collection.find(id, function(err, data) {
-        if (data) {
-            return res.status(200).json(data);
-        }
-    });
+    var model = app.controllers.genericDAO;
 
-
+    model.getById(app, req, res, app.models.Produto);
 }
 
 module.exports = {

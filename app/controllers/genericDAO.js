@@ -14,10 +14,12 @@ var insert = function(app, req, res, Model) {
     var dados = req.body;
 
     Model.collection.insert(dados, function(err, data) {
-        if (data) {
+        if (!err) {
             return res.status(200).json({ 'status': 'OK', "id": dados._id });
+        } else {
+            console.log(err);
+            return res.json(err);
         }
-        return res.json(err);
     });
 }
 
@@ -35,7 +37,7 @@ var merge = function(app, req, res, Model) {
 
     //se existir atualiza
 
-    //se não existir, insere
+    //se nï¿½o existir, insere
 }
 
 module.exports = {

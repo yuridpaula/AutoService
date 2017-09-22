@@ -1,5 +1,5 @@
 var express = require('express');
-var load = require('express-load');
+var consign = require('consign');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var cors = require('cors');
@@ -25,16 +25,17 @@ module.exports = function() {
     app.use(express.static('./app/public'));
 
     /*
-       Carrega todos os módulos de app/models,
-       depois os módulos de app/controllers,
-       e, por fim, os módulos de app/routes,
-       "despejando" tudo na variável app
+       Carrega todos os mï¿½dulos de app/models,
+       depois os mï¿½dulos de app/controllers,
+       e, por fim, os mï¿½dulos de app/routes,
+       "despejando" tudo na variï¿½vel app
     */
 
     // cwd = change working directory
-    load('models', { cwd: 'app' })
-        .then('controllers')
-        .then('routes')
+    consign()
+        .include('app/models')
+        .then('app/controllers')
+        .then('app/routes')
         .into(app);
 
     return app;
