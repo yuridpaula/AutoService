@@ -1,0 +1,18 @@
+mostrar databases:
+show dbs;
+
+setar database:
+use <nomaDatabase>
+
+visualizar collections(depois de setar o bd):
+show collections
+
+visualizar documentos(depois de setar o db):
+db.<nomeCollection>.find()
+
+limpar collection(depois de setar o db):
+db.<nomeCollection>.drop();
+
+apagar database(depois de setar o db):
+db.dropDatabase();
+
