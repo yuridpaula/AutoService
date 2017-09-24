@@ -9,7 +9,7 @@ var listarProduto = (app, req, res) => {
                 return res.status(404).json({ content: [] });
             }
             if (data) {
-                res.json({ status: "OK", content: data });
+                res.json(data);
             }
         },
         function(erro) {
@@ -29,7 +29,6 @@ var inserirProduto = function(app, req, res) {
         }
         return res.status(500).json(err);
     });
-
 }
 
 var selecionarProdutoPorId = function(app, req, res) {

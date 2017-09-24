@@ -12,6 +12,7 @@ app.set('port', 3000);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
 
 consign()
     .include('src/routes')
