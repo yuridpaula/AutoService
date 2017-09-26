@@ -12,6 +12,9 @@ import { MovimentoComponent } from './movimento/movimento.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { ProdutoService } from "./produto/produto.service";
+import { IntegranteService } from "./integrante/integrante.service";
+import { MovimentoService } from "./movimento/movimento.service";
+
 
 @NgModule({
   declarations: [
@@ -24,7 +27,7 @@ import { ProdutoService } from "./produto/produto.service";
   imports: [
     BrowserModule, AppRoutingModule, HttpClientModule
   ],
-  providers: [ProdutoService],
+  providers: [ProdutoService, MovimentoService, IntegranteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

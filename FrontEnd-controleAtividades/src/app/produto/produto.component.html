@@ -1,3 +1,23 @@
-<ul>
-    <li *ngFor="let produto of produtos">{{produto.descricao}}</li>
-</ul>
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Descrição</th>
+        <th>Valor Venda Sugerido</th>
+        <th>Estoque Atual</th>
+    </thead>
+    <tbody>
+        <tr ngFor="let produto of produtos">
+            <td> {{produto._id}}</td>
+            <td> {{produto.descricao}}</td>
+            <td> {{produto.valor_venda_sugerido}}</td>
+            <td> {{produto.estoque_atual}}</td>
+        </tr>
+    </tbody>
+
+    <tfoot>
+        <th>ID</th>
+        <th>Descrição</th>
+        <th>Valor Venda Sugerido</th>
+        <th>Estoque Atual</th>
+    </tfoot>
+</table>

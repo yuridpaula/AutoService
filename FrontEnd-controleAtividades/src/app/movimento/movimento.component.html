@@ -1,3 +1,25 @@
-<p>
-  movimento works!
-</p>
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Integrante</th>
+        <th>Tipo</th>
+        <th>Documento</th>
+        <th>Itens</th>
+    </thead>
+    <tbody>
+        <tr ngFor="let movimento of movimentos">
+            <td> {{movimento._id}}</td>
+            <td> {{movimento.integrnate}}</td>
+            <td> {{movimento.tipo}}</td>
+            <td> {{movimento.documento}}</td>
+            <td> {{movimento.itens}}</td>
+        </tr>
+    </tbody>
+
+    <tfoot>
+        <th>ID</th>
+        <th>Integrante</th>
+        <th>Tipo</th>
+        <th>Documento</th>
+    </tfoot>
+</table>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IntegranteService } from './integrante.service';
 
 @Component({
   selector: 'app-integrante',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./integrante.component.css']
 })
 export class IntegranteComponent implements OnInit {
-
-  constructor() { }
+  integrantes: any;
+  constructor(private integranteService: IntegranteService) { }
 
   ngOnInit() {
+    this.integranteService.listarTodos().subscribe(data=>{
+      this.integrantes = data;
+        });
   }
-
 }
