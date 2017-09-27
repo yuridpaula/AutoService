@@ -14,6 +14,6 @@ export class CabMovimentoComponent implements OnInit {
     this.cabMovimentoService.listarTodos().subscribe(data=>{
       this.movimentos = data;
         });
-  }
+  } 
 } 
 
