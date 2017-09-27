@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MovimentoService } from './movimento.service';
 
 @Component({
-  selector: 'app-produto',
-  templateUrl: './produto.component.html',
-  styleUrls: ['./produto.component.css']
+  selector: 'app-movimento',
+  templateUrl: './movimento.component.html',
+  styleUrls: ['./movimento.component.css']
 })
 export class MovimentoComponent implements OnInit {
   movimentos: any;
@@ -15,5 +15,5 @@ export class MovimentoComponent implements OnInit {
       this.movimentos = data;
         });
   }
-}
+} 
 

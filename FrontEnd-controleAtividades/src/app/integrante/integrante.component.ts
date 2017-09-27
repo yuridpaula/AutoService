@@ -13,6 +13,6 @@ export class IntegranteComponent implements OnInit {
   ngOnInit() {
     this.integranteService.listarTodos().subscribe(data=>{
       this.integrantes = data;
-        });
+    })
   }
 }

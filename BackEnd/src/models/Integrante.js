@@ -13,22 +13,20 @@ module.exports = function() {
         contato: {
             type: String
         },
-        endereco: {
-            uf: {
-                type: String
-            },
-            cidade: {
-                type: String
-            },
-            rua: {
-                type: String
-            },
-            numero: {
-                type: Number
-            },
-            complemento: {
-                type: String
-            }
+        uf: {
+            type: String
+        },
+        cidade: {
+            type: String
+        },
+        rua: {
+            type: String
+        },
+        numero: {
+            type: Number
+        },
+        complemento: {
+            type: String
         }
     });
 

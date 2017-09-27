@@ -14,6 +14,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { ProdutoService } from "./produto/produto.service";
 import { IntegranteService } from "./integrante/integrante.service";
 import { MovimentoService } from "./movimento/movimento.service";
+import { CabMovimentoComponent } from './cab-movimento/cab-movimento.component';
+import { ItemMovimentoComponent } from './item-movimento/item-movimento.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { MovimentoService } from "./movimento/movimento.service";
     ProdutoComponent,
     HomeComponent,
     IntegranteComponent,
-    MovimentoComponent
+    MovimentoComponent,
+    CabMovimentoComponent,
+    ItemMovimentoComponent
   ],
   imports: [
     BrowserModule, AppRoutingModule, HttpClientModule

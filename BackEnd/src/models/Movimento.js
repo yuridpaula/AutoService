@@ -1,4 +1,4 @@
-var mongoose = require('mongoose');
+/*var mongoose = require('mongoose');
 
 module.exports = function() {
 
@@ -42,4 +42,4 @@ module.exports = function() {
 
     return mongoose.model('Movimento', schema);
 
-}
+}*/

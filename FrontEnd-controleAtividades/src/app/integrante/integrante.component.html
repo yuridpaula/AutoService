@@ -1,32 +1,14 @@
 <table>
     <thead>
+        <th>ID</th>
         <th>Integrante</th>
         <th>Contato</th>
-        <th>UF</th>
-        <th>Cidade</th>
-        <th>Rua</th>
-        <th>Numero</th>
-        <th>complemento</th>
     </thead>
     <tbody>
-        <tr ngFor="let integrante of integrantes">
-            <td> {{integrante.integrnate}}</td>
-            <td> {{integrante.contato}}</td>
-            <td> {{integrante.UF}}</td>
-            <td> {{integrante.endereco.cidade}}</td>
-            <td> {{integrante.endereco.rua}}</td>
-            <td> {{integrante.endereco.numero}}</td>
-            <td> {{integrante.endereco.complemento}}</td>
+        <tr *ngFor="let item of integrantes">
+            <td>{{item._id}}</td>
+            <td>{{item.integrante}}</td>
+            <td>{{item.contato}}</td>
         </tr>
     </tbody>
-
-    <tfoot>
-        <th>Integrante</th>
-        <th>Contato</th>
-        <th>UF</th>
-        <th>Cidade</th>
-        <th>Rua</th>
-        <th>Numero</th>
-        <th>complemento</th>
-    </tfoot>
 </table>

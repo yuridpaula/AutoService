@@ -9,7 +9,7 @@ var listarIntegrante = (app, req, res) => {
                 return res.status(404).json({ content: [] });
             }
             if (data) {
-                res.json({ status: "OK", content: data });
+                res.json(data);
             }
         },
         function(erro) {
@@ -25,7 +25,7 @@ var inserirIntegrante = function(app, req, res) {
 
     Integrante.collection.insert(dados, function(err, data) {
         if (data) {
-            return res.status(200).json({ status: "OK", content: { '_id': dados._id } });
+            return res.status(200).json(dados._id);
         }
         return res.status(500).json(err);
     });
@@ -42,7 +42,7 @@ var selecionarIntegrantePorId = function(app, req, res) {
         }
 
         if (data) {
-            return res.status(200).json({ content: data });
+            return res.status(200).json(data);
         }
 
         return res.status(500).json(err);

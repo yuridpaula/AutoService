@@ -1,7 +1,7 @@
-/*var ObjectId = require('mongodb').ObjectId;
+var ObjectId = require('mongodb').ObjectId;
 
-var listarMovimento = (app, req, res) => {
-    var Movimento = app.src.models.Movimento;
+var listarItemMovimento = (app, req, res) => {
+    var Movimento = app.src.models.Item_movimento;
     Movimento.find().exec().then(
         function(data) {
 
@@ -19,8 +19,8 @@ var listarMovimento = (app, req, res) => {
     );
 }
 
-var inserirMovimento = function(app, req, res) {
-    var Movimento = app.src.models.Movimento;
+var inserirItemMovimento = function(app, req, res) {
+    var Movimento = app.src.models.Item_movimento;
     var dados = req.body;
 
     Movimento.collection.insert(dados, function(err, data) {
@@ -32,26 +32,9 @@ var inserirMovimento = function(app, req, res) {
 
 }
 
-var selecionarMovimentoPorId = function(app, req, res) {
-
+var excluirItemMovimento = function(app, req, res) {
     var id = req.params.id;
-    var Movimento = app.src.models.Movimento;
-    Movimento.collection.findOne({ _id: new ObjectId(id) }, function(err, data) {
-        if (!data) {
-            return res.status(404).json({ content: [] });
-        }
-
-        if (data) {
-            return res.status(200).json(data);
-        }
-
-        return res.status(500).json(err);
-    });
-}
-
-var excluirMovimento = function(app, req, res) {
-    var id = req.params.id;
-    var Movimento = app.src.models.Movimento;
+    var Movimento = app.src.models.Item_movimento;
     Movimento.collection.remove({ _id: new ObjectId(id) }, function(err, data) {
 
         if (data) {
@@ -63,8 +46,7 @@ var excluirMovimento = function(app, req, res) {
 }
 
 module.exports = {
-    listarMovimento,
-    selecionarMovimentoPorId,
-    inserirMovimento,
-    excluirMovimento
-}*/
+    listarItemMovimento,
+    inserirItemMovimento,
+    excluirItemMovimento
+}

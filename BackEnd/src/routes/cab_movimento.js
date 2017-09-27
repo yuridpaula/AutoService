@@ -1,4 +1,4 @@
-/*var controller = require('../controllers/movimento');
+var controller = require('../controllers/cab_movimento');
 
 module.exports = function(application) {
     application.get('/movimento', function(req, res) {
@@ -17,4 +17,4 @@ module.exports = function(application) {
         controller.excluirMovimento(application, req, res);
     });
 
-}*/
+}
