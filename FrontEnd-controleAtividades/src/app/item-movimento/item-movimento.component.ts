@@ -3,8 +3,8 @@ import { ItemMovimentoService } from './item-movimento.service';
 
 @Component({
   selector: 'app-item-movimento',
-  templateUrl: './cab-movimento.component.html',
-  styleUrls: ['./cab-movimento.component.css']
+  templateUrl: './item-movimento.component.html',
+  styleUrls: ['./item-movimento.component.css']
 })
 export class ItemMovimentoComponent implements OnInit {
   movimentos: any;

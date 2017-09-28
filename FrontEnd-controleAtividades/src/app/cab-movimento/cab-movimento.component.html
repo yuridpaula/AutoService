@@ -1,16 +1,26 @@
-<table style="border: 1px solid black;">
-    <thead>
-        <th>ID</th>
-        <th>Integrante</th>
-        <th>Tipo</th>
-        <th>Documento</th>
-    </thead>
-    <tbody>
-        <tr *ngFor="let item of movimentos">
-            <td> <a{{item._id}}></td>
-            <td> {{item.integrnate}}</td>
-            <td> {{item.tipo}}</td>
-            <td> {{item.documento}}</td>
-        </tr>
-    </tbody>
-</table>
+<h1>Cabeçalho Movimentos </h1>
+
+<div>
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Integrante</th>
+            <th>Tipo</th>
+            <th>Documento</th>
+            <th>Itens</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of movimentos">
+                <td>{{item._id}}</td>
+                <td><a routerLink='/integrante'>{{item.integrante}} </a></td>
+                <td>{{item.tipo}}</td>
+                <td>{{item.documento}}</td>
+                <td><a routerLink='/item_movimento'><i class="fa fa-bars"></i></a></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</div>
+
+<router-outlet></router-outlet>

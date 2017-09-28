@@ -18,23 +18,9 @@
         "testTsconfig": "tsconfig.spec.json",
         "prefix": "app",
         "styles": [
-            "styles.css",
-            "public/css/_all-skin.min.css",
-            "public/css/AdminLTE.min.css",
-            "public/css/bootstrap.min.css",
-            "public/css/bootstrap3-wysihtml5.min.css",
-            "public/css/font-awesome.min.css",
-            "public/css/inicons.min.css"
+            "styles.css"
         ],
-        "scripts": [
-            "public/js/adminlte.min.js",
-            "public/js/bootstrap.min.js",
-            "public/js/bootstrap3-wysihtml5.min.js",
-            "public/js/dashboard.js",
-            "public/js/demo.js",
-            "public/js/jquery.js",
-            "public/js/jquery-ui.js"
-        ],
+        "scripts": [],
         "environmentSource": "environments/environment.ts",
         "environments": {
             "dev": "environments/environment.ts",

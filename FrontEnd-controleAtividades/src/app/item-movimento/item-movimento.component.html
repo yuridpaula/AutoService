@@ -1,25 +1,30 @@
-<table style="border: 1px solid black;">
-    <thead>
-        <th>ID_Item</th>
-        <th>ID_Cab_movimento</th>
-        <th>ID_produto</th>
-        <th>Quantidade</th>
-        <th>Valor_pago</th>
-        <th>Data Movimento</th>
-        <th>Data Pagamento </th>
-        <th>Pago</th>
-    </thead>
-    <tbody>
-        <tr *ngFor="let item of movimentos">
-            <td><a>{{item._id}}</a></td>
-            <td> {{item._id}}</td>
-            <td> {{item.cab_movimento}}</td>
-            <td> {{item.produto}}</td>
-            <td> {{item.quantidade}}</td>
-            <td> {{item.valor_pago}}</td>
-            <td> {{item.data_movimento}}</td>
-            <td> {{item.data_pagamento}}</td>
-            <td> {{item.pago}}</td>
-        </tr>
-    </tbody>
-</table>
+<app-cab-movimento></app-cab-movimento>
+
+<h1>Itens Movimento </h1>
+
+<div>
+    <table>
+        <thead>
+            <th>ID_Item</th>
+            <th>ID_Cab_movimento</th>
+            <th>ID_produto</th>
+            <th>Quantidade</th>
+            <th>Valor_pago</th>
+            <th>Data Movimento</th>
+            <th>Data Pagamento </th>
+            <th>Pago</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of movimentos">
+                <td> {{item._id}}</td>
+                <td><a routerLink='/movimento'>{{item.cab_movimento}} </a></td>
+                <td><a routerLink='/produto'>{{item.produto}}</a> </td>
+                <td> {{item.quantidade}}</td>
+                <td> {{item.valor_pago}}</td>
+                <td> {{item.data_movimento}}</td>
+                <td> {{item.data_pagamento}}</td>
+                <td> {{item.pago}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

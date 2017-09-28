@@ -1,16 +1,20 @@
-<table>
-    <thead>
-        <th>ID</th>
-        <th>Descrição</th>
-        <th>Valor Venda Sugerido</th>
-        <th>Estoque Atual</th>
-    </thead>
-    <tbody>
-        <tr *ngFor="let item of produtos">
-            <td> {{item._id}}</td>
-            <td> {{item.descricao}}</td>
-            <td> {{item.valor_venda_sugerido}}</td>
-            <td> {{item.estoque_atual}}</td>
-        </tr>
-    </tbody>
-</table>
+<h1> Produtos </h1>
+
+<div>
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Descrição</th>
+            <th>Valor Venda Sugerido</th>
+            <th>Estoque Atual</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of produtos">
+                <td> {{item._id}}</td>
+                <td> {{item.descricao}}</td>
+                <td> {{item.valor_venda_sugerido}}</td>
+                <td> {{item.estoque_atual}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

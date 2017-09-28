@@ -22,10 +22,10 @@ module.exports = function() {
             required: true
         },
         data_movimento: {
-            type: Date
+            type: String
         },
         data_pagamento: {
-            type: Date
+            type: String
         },
         pago: {
             type: Boolean
