@@ -1,10 +1,10 @@
 <div class="row">
-    <nav aria-label="breadcrumb" role="navigation">
-        <ol class="breadcrumb" *ngFor="let item of bread">
-            <li class="breadcrumb-item">
-                <a routerLink='{{item.link}}]'>{{item.nome}} </a>
-            </li>
-        </ol>
-    </nav>
+    <ol class="breadcrumb">
+        <li *ngFor="let item of bread">
+            <a routerLink='{{item.link}}'><small>{{item.nome}} </small></a>
+        </li>
+    </ol>
 </div>
-
+<div class="page-header">
+  <h1>{{header}}</h1>
+</div>

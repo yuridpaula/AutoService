@@ -1,28 +1,47 @@
 <app-bread-crumb></app-bread-crumb>
-<br>
-<div clas='row'>
-    <div class="col-md-1">
-        <a [routerLink]="['/integrante/novo']" class="btn btn-primary">Novo</a>
+
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-11">
+                    <h2 class="panel-title"><strong>Tabela de Integrantes</strong></h2>
+                </div>
+                <div class="col-md-1">
+                    <div class="btn-group btn-group-sm" role="group">
+                        <a [routerLink]="['/integrante/novo']" class="btn btn-primary">Novo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Integrante</th>
+                    <th>Nome</th>
+                    <th>Contato</th>
+                    <th>UF</th>
+                    <th>Cidade</th>
+                    <th>Rua</th>
+                    <th>Numero</th>
+                    <th>Complemento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of integrantes">
+                    <td>
+                        <a [routerLink]="['/integrante', item._id]">{{item.integrante}}</a>
+                    </td>
+                    <td>{{item.nome}}</td>
+                    <td>{{item.contato}}</td>
+                    <td>{{item.uf}}</td>
+                    <td>{{item.cidade}}</td>
+                    <td>{{item.rua}}</td>
+                    <td>{{item.numero}}</td>
+                    <td>{{item.complemento}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
-<br>
-<div class="row">
-    <h1> Tabela de Integrantes </h1>
-</div>
-<br>
-<div class="row">
-    <table class="table table-striped">
-        <thead>
-            <th>Integrante</th>
-            <th>Contato</th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of integrantes">
-                <td><a [routerLink]="['/integrante', item._id]">
-                    {{item.integrante}}
-                  </a></td>
-                <td>{{item.contato}}</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+

@@ -1,68 +1,70 @@
-<br>
-<div class="row">
-    <div class="col-md-1">
-        <a [routerLink]="['/integrante']" class="btn btn-info">Voltar para Lista</a>
+<app-bread-crumb></app-bread-crumb>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-10">
+                <h2 class="panel-title"><strong>Cadastro de Integrantes</strong></h2>
+            </div>
+            <div class="col-md-1">
+                <div class="btn-group btn-group-sm" role="group">
+                    <a [routerLink]="['/integrante/']" class="btn btn-info">Voltar para Lista</a>
+                </div>
+            </div>
+        </div>
     </div>
+    <form #integranteForm="ngForm" (ngSubmit)="enviar()">
+        <br>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <label for="integrante">Integrante</label>
+                <input type="text" id="integrante" name=integrante [(ngModel)]="model.integrante" class="form-control">
+            </div>
+            <div class="col-md-3">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name=nome [(ngModel)]="model.nome" class="form-control">
+            </div>
+            <div class="col-md-3">
+                <label for="integrante">Contato</label>
+                <input type="text" id="contato" name=contato [(ngModel)]="model.contato" class="form-control">
+            </div>
+
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-1">
+                <label for="nome">Estado</label>
+                <input type="text" id="uf" name=uf [(ngModel)]="model.uf" class="form-control">
+            </div>
+            <div class="col-md-2">
+                <label for="nome">Cidade</label>
+                <input type="text" id="cidade" name=cidade [(ngModel)]="model.cidade" class="form-control">
+            </div>
+            <div class="col-md-3">
+                <label for="nome">Rua</label>
+                <input type="text" id="rua" name=rua [(ngModel)]="model.rua" class="form-control">
+            </div>
+            <div class="col-md-1">
+                <label for="nome">Numero</label>
+                <input type="text" id="numero" name=numero [(ngModel)]="model.numero" class="form-control">
+            </div>
+            <div class="col-md-2">
+                <label for="nome">Complemento</label>
+                <input type="text" id="complemento" name=complemento [(ngModel)]="model.complemento" class="form-control">
+            </div>
+        </div>
+        <br>
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col-md-11"></div>
+                <div class="col-md-1">
+                    <input type="submit" value="Enviar" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
-
-<form #integranteForm="ngForm" (ngSubmit)="enviar()">
-    <br>
-    <br>
-    <div class="row">
-        <div class="col-md-11">
-            <h3>Cadastro de Integrante</h3>
-        </div>
-    </div>
-
-    <br>
-
-    <div class="row">
-        <div class="col-md-3">
-            <label for="integrante">Integrante</label>
-            <input type="text" id="integrante" name=integrante [(ngModel)]="model.integrante" class="form-control">
-        </div>
-        <div class="col-md-3">
-            <label for="nome">Nome</label>
-            <input type="text" id="nome" name=nome [(ngModel)]="model.nome" class="form-control">
-        </div>
-        <div class="col-md-3">
-            <label for="integrante">Contato</label>
-            <input type="text" id="contato" name=contato [(ngModel)]="model.contato" class="form-control">
-        </div>
-
-    </div>
-
-    <br>
-
-    <div class="row">
-        <div class="col-md-1">
-            <label for="nome">Estado</label>
-            <input type="text" id="uf" name=uf [(ngModel)]="model.uf" class="form-control">
-        </div>
-        <div class="col-md-2">
-            <label for="nome">Cidade</label>
-            <input type="text" id="cidade" name=cidade [(ngModel)]="model.cidade" class="form-control">
-        </div>
-        <div class="col-md-3">
-            <label for="nome">Rua</label>
-            <input type="text" id="rua" name=rua [(ngModel)]="model.rua" class="form-control">
-        </div>
-        <div class="col-md-1">
-            <label for="nome">Numero</label>
-            <input type="text" id="numero" name=numero [(ngModel)]="model.numero" class="form-control">
-        </div>
-        <div class="col-md-2">
-            <label for="nome">Complemento</label>
-            <input type="text" id="complemento" name=complemento [(ngModel)]="model.complemento" class="form-control">
-        </div>
-    </div>
-
-    <br>
-
-    <div class="row form-group">
-        <div class="col-md-4"></div>
-        <div class="col-md-1">
-            <input type="submit" value="Enviar" class="btn btn-primary" />
-        </div>
-    </div>
-</form>
