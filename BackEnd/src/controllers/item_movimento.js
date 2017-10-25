@@ -45,8 +45,24 @@ var excluirItemMovimento = function(app, req, res) {
     });
 }
 
+
+var atualizarItemMovimento = function(app, req, res) {
+    var id = req.body._id;
+    var ItemMovimento = app.src.models.Item_movimento;
+    ItemMovimento.findByIdAndUpdate(id, req.body).then(
+        function(item) {
+            res.status(200).json(item);
+        },
+        function(erro) {
+            console.error(erro);
+            res.status(404).json('Item Movimento não encontrado para atualizar!')
+        }
+    );
+}
+
 module.exports = {
     listarItemMovimento,
     inserirItemMovimento,
-    excluirItemMovimento
+    excluirItemMovimento,
+    atualizarItemMovimento
 }

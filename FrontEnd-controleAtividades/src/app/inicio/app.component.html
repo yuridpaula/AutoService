@@ -1,11 +1,18 @@
-<nav>
-    <ul>
-        <li><a routerLink='/home'>Home</a></li>
-        <li><a routerLink='/integrante'>Integrantes</a></li>
-        <li><a routerLink='/movimento'>Movimentos</a></li>
-        <li><a routerLink='/produto'>Produtos</a></li>
-    </ul>
-</nav>
+<ul class="nav nav-pills">
+    <li class="nav-item">
+        <a class="nav-link" routerLink='/home'>Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink='/integrante'>Integrantes</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink='/movimento'>Movimentos</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink='/produto'>Produtos</a>
+    </li>
+</ul>
+
 <div class="content">
     <router-outlet></router-outlet>
 </div>

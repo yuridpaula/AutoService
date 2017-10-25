@@ -11,11 +11,14 @@ import { CabMovimentoComponent } from './cab-movimento/cab-movimento.component';
 import { ItemMovimentoComponent } from './item-movimento/item-movimento.component';
 
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from "@angular/forms";
 
 import { ProdutoService } from "./produto/produto.service";
 import { IntegranteService } from "./integrante/integrante.service";
 import { CabMovimentoService } from './cab-movimento/cab-movimento.service';
 import { ItemMovimentoService } from './item-movimento/item-movimento.service';
+import { FormIntegranteComponent } from './integrante/form-integrante/form-integrante.component';
+import { BreadCrumbComponent } from './bread-crumb/bread-crumb.component';
 
 
 @NgModule({
@@ -25,10 +28,12 @@ import { ItemMovimentoService } from './item-movimento/item-movimento.service';
     HomeComponent,
     IntegranteComponent,
     CabMovimentoComponent,
-    ItemMovimentoComponent
+    ItemMovimentoComponent,
+    FormIntegranteComponent,
+    BreadCrumbComponent
   ],
   imports: [
-    BrowserModule, AppRoutingModule, HttpClientModule
+    BrowserModule, AppRoutingModule, HttpClientModule, FormsModule
   ],
   providers: [ProdutoService, CabMovimentoService, IntegranteService, ItemMovimentoService],
   bootstrap: [AppComponent]

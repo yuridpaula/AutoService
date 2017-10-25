@@ -62,9 +62,25 @@ var excluirMovimento = function(app, req, res) {
     });
 }
 
+
+var atualizarMovimento = function(app, req, res) {
+    var id = req.body._id;
+    var Movimento = app.src.models.Movimento;
+    Movimento.findByIdAndUpdate(id, req.body).then(
+        function(movimento) {
+            res.status(200).json(movimento);
+        },
+        function(erro) {
+            console.error(erro);
+            res.status(404).json('Movimento não encontrado para atualizar!')
+        }
+    );
+}
+
 module.exports = {
     listarMovimento,
     selecionarMovimentoPorId,
     inserirMovimento,
-    excluirMovimento
+    excluirMovimento,
+    atualizarMovimento
 }

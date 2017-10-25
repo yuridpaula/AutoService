@@ -61,9 +61,25 @@ var excluirProduto = function(app, req, res) {
     });
 }
 
+
+var atualizarProduto = function(app, req, res) {
+    var id = req.body._id;
+    var Produto = app.src.models.Produto;
+    Produto.findByIdAndUpdate(id, req.body).then(
+        function(produto) {
+            res.status(200).json(produto);
+        },
+        function(erro) {
+            console.error(erro);
+            res.status(404).json('Produto não encontrado para atualizar!')
+        }
+    );
+}
+
 module.exports = {
     listarProduto,
     selecionarProdutoPorId,
     inserirProduto,
-    excluirProduto
+    excluirProduto,
+    atualizarProduto
 }

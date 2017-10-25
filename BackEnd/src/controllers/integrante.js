@@ -62,9 +62,24 @@ var excluirIntegrante = function(app, req, res) {
     });
 }
 
+var atualizarIntegrante = function(app, req, res) {
+    var id = req.body._id;
+    var Integrante = app.src.models.Integrante;
+    Integrante.findByIdAndUpdate(id, req.body).then(
+        function(integrante) {
+            res.status(200).json(integrante);
+        },
+        function(erro) {
+            console.error(erro);
+            res.status(404).json('Integrante não encontrado para atualizar!')
+        }
+    );
+}
+
 module.exports = {
     listarIntegrante,
     selecionarIntegrantePorId,
     inserirIntegrante,
-    excluirIntegrante
+    excluirIntegrante,
+    atualizarIntegrante
 }

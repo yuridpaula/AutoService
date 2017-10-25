@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { IntegranteComponent } from './integrante/integrante.component';
 import { CabMovimentoComponent } from "./cab-movimento/cab-movimento.component";
 import { ItemMovimentoComponent } from "./item-movimento/item-movimento.component";
+import { FormIntegranteComponent } from "./integrante/form-integrante/form-integrante.component";
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -14,7 +15,8 @@ const routes: Routes = [
     { path: 'integrante', component: IntegranteComponent},
     { path: 'movimento', component: CabMovimentoComponent},
     { path: 'item_movimento', component: ItemMovimentoComponent},
-
+    { path: 'integrante/novo', component: FormIntegranteComponent},
+    { path: 'integrante/:id', component: FormIntegranteComponent}
 ];
 
 @NgModule({

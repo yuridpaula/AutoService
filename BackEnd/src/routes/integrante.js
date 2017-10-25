@@ -17,4 +17,8 @@ module.exports = function(application) {
         controller.excluirIntegrante(application, req, res);
     });
 
+    application.put('/integrante', function(req, res) {
+        controller.atualizarIntegrante(application, req, res);
+    });
+
 }
