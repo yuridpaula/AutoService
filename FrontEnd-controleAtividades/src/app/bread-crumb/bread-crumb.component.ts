@@ -1,22 +1,27 @@
 
 import { Component, OnInit } from '@angular/core';
 
-import { BreadCrumbService } from "./bread-crumb.service";
-
 @Component({
   selector: 'app-bread-crumb',
   templateUrl: './bread-crumb.component.html',
-  styleUrls: ['./bread-crumb.component.css'],
-  providers: [BreadCrumbService]
+  styleUrls: ['./bread-crumb.component.css']
 })
 export class BreadCrumbComponent implements OnInit {
 
-  breads: any;
+  private static breads: any;
+  public bread: any;
 
-  constructor(private service: BreadCrumbService) { }
+  constructor() { }
 
   ngOnInit() {
-    //this.breads = this.service.getBreads();
+    //this.bread = BreadCrumbComponent.breads;
+    /*this.bread = [{'nome': 'HOME'      , 'link': '/home'}, 
+    {'nome': 'INTEGRANTE', 'link': '/intregrante'}, 
+    {'nome': 'CADASTRO'  , 'link': '/integrante/novo'}];*/
+  }
+
+  public setBreads(data: any){
+    BreadCrumbComponent.breads = data;
   }
 
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { IntegranteService } from './integrante.service';
 
+import { BreadCrumbComponent } from "../bread-crumb/bread-crumb.component";
+
 @Component({
   selector: 'app-integrante',
   templateUrl: './integrante.component.html',
@@ -12,6 +14,7 @@ export class IntegranteComponent implements OnInit {
   
   private titulo = 'Lista de Integrantes'
   integrantes: any;
+  breads: BreadCrumbComponent;
   
   constructor(private integranteService: IntegranteService) { }
 
@@ -20,4 +23,10 @@ export class IntegranteComponent implements OnInit {
       this.integrantes = data)
 }
   
+
+    private newFunction() {
+        this.breads.setBreads([{ 'nome': 'HOME', 'link': '/home' },
+        { 'nome': 'INTEGRANTE', 'link': '/intregrante' },
+        { 'nome': 'CADASTRO', 'link': '/integrante/novo' }]);
+    }
 }
