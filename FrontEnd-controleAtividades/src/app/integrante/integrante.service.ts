@@ -41,6 +41,10 @@ export class IntegranteService {
     return this.http.get(environment.urlApi + '/integrante/' + id)
   }
 
+  public apagar(id: string){
+    return this.http.delete(environment.urlApi + '/integrante/' + id)
+  }
+
 }
 
 

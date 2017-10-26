@@ -22,11 +22,5 @@ export class IntegranteComponent implements OnInit {
     this.integranteService.listarTodos().subscribe(data=>
       this.integrantes = data)
 }
-  
 
-    private newFunction() {
-        this.breads.setBreads([{ 'nome': 'HOME', 'link': '/home' },
-        { 'nome': 'INTEGRANTE', 'link': '/intregrante' },
-        { 'nome': 'CADASTRO', 'link': '/integrante/novo' }]);
-    }
 }
