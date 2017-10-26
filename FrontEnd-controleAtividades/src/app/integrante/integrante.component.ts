@@ -14,13 +14,17 @@ export class IntegranteComponent implements OnInit {
   
   private titulo = 'Lista de Integrantes'
   integrantes: any;
-  breads: BreadCrumbComponent;
   
-  constructor(private integranteService: IntegranteService) { }
+  constructor(private integranteService: IntegranteService, private bd: BreadCrumbComponent) {  }
 
   ngOnInit() {
+    this.bd.setBreads([{'nome': 'HOME'      , 'link': '/home'}, 
+                       {'nome': 'INTEGRANTE', 'link': '/integrante'}, 
+                       {'nome': 'CADASTRO'  , 'link': '/integrante/novo'}]);
+    this.bd.setHeader('Lista de Integrantes');
+
     this.integranteService.listarTodos().subscribe(data=>
-      this.integrantes = data)
+      this.integrantes = data);
 }
 
 }

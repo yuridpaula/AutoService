@@ -35,7 +35,7 @@ import { BreadCrumbComponent } from './bread-crumb/bread-crumb.component';
   imports: [
     BrowserModule, AppRoutingModule, HttpClientModule, FormsModule
   ],
-  providers: [ProdutoService, CabMovimentoService, IntegranteService, ItemMovimentoService],
+  providers: [ProdutoService, CabMovimentoService, IntegranteService, ItemMovimentoService, BreadCrumbComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
