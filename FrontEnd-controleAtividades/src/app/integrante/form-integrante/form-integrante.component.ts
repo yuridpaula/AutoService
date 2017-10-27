@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IntegranteService, Integrante } from "../integrante.service";
 import { Router, ActivatedRoute } from '@angular/router';
+import { BreadCrumbComponent } from "../../bread-crumb/bread-crumb.component";
 
 
 @Component({
@@ -11,7 +12,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class FormIntegranteComponent implements OnInit {
 
-  private title = 'Novo Integrante'
   private model : Integrante = new Integrante()
   private id : string
 
@@ -19,11 +19,17 @@ export class FormIntegranteComponent implements OnInit {
   constructor(
     private service: IntegranteService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private bd: BreadCrumbComponent
 
   ) { }
 
-  ngOnInit() {    
+  ngOnInit() {
+    this.bd.setBreads([{'nome': 'HOME'      , 'link': '/home'}, 
+                       {'nome': 'INTEGRANTE', 'link': '/integrante'}, 
+                       {'nome': 'CADASTRO'  , 'link': '/novo'}]);
+    this.bd.setHeader('Cadastro de Integrantes');
+    
     this.route.params.subscribe(
       // Se existir um parâmetro id, significa que queremos editar
       // um objeto já existente

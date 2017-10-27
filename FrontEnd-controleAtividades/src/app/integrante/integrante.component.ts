@@ -12,16 +12,14 @@ import { BreadCrumbComponent } from "../bread-crumb/bread-crumb.component";
 })
 export class IntegranteComponent implements OnInit {
   
-  private titulo = 'Lista de Integrantes'
   integrantes: any;
   
   constructor(private integranteService: IntegranteService, private bd: BreadCrumbComponent) {  }
 
   ngOnInit() {
     this.bd.setBreads([{'nome': 'HOME'      , 'link': '/home'}, 
-                       {'nome': 'INTEGRANTE', 'link': '/integrante'}, 
-                       {'nome': 'CADASTRO'  , 'link': '/integrante/novo'}]);
-    this.bd.setHeader('Lista de Integrantes');
+                       {'nome': 'INTEGRANTE', 'link': '/integrante'}]);
+    this.bd.setHeader('Lista de Integrantes Cadastrados');
 
     this.integranteService.listarTodos().subscribe(data=>
       this.integrantes = data);
