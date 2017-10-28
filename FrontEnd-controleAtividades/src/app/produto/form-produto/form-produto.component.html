@@ -1,0 +1,43 @@
+<app-bread-crumb></app-bread-crumb>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-10">
+                <h2 class="panel-title"><strong>Cadastro de Produtos</strong></h2>
+            </div>
+            <div class="col-md-1">
+                <div class="btn-group btn-group-sm" role="group">
+                    <a [routerLink]="['/produtos']" class="btn btn-info">Voltar para Lista</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form #produtoForm="ngForm" (ngSubmit)="enviar()">
+        <br>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-4">
+                <label for="integrante">Descrição</label>
+                <input type="text" id="descricao" name=descricao [(ngModel)]="model.descricao" class="form-control">
+            </div>
+            <div class="col-md-2">
+                <label for="nome">Valor Venda Sugerido</label>
+                <input type="text" id="valor_venda_sugerido" name=valor_venda_sugerido [(ngModel)]="model.valor_venda_sugerido" class="form-control">
+            </div>
+            <div class="col-md-2">
+                <label for="integrante">Estoque Atual</label>
+                <input type="text" id="estoque_atual" name=estoque_atual [(ngModel)]="model.estoque_atual" class="form-control">
+            </div>
+        </div>
+        <br>
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col-md-11"></div>
+                <div class="col-md-1">
+                    <input type="submit" value="Enviar" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-md-1">
                     <div class="btn-group btn-group-sm" role="group">
-                        <a [routerLink]="['/integrante/novo']" class="btn btn-primary glyphicon glyphicon-plus"></a>
+                        <a [routerLink]="['/integrantes/novo']" class="btn btn-primary glyphicon glyphicon-plus"></a>
                     </div>
                 </div>
             </div>
@@ -25,13 +25,12 @@
                     <th>Rua</th>
                     <th>Numero</th>
                     <th>Complemento</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let item of integrantes">
-                    <td>
-                        <a [routerLink]="['/integrante', item._id]">{{item.integrante}}</a>
-                    </td>
+                    <td>{{item.integrante}}</td>
                     <td>{{item.nome}}</td>
                     <td>{{item.contato}}</td>
                     <td>{{item.uf}}</td>
@@ -39,6 +38,10 @@
                     <td>{{item.rua}}</td>
                     <td>{{item.numero}}</td>
                     <td>{{item.complemento}}</td>
+                    <td>
+                        <a class="glyphicon glyphicon-pencil" [routerLink]="['/integrantes', item._id]"></a>
+                        <a class="glyphicon glyphicon-trash" (click)="apagar(item._id)"></a>
+                    </td>
                 </tr>
             </tbody>
         </table>

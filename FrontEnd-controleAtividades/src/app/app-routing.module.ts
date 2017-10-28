@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes} from '@angular/router';
+import { NgModule }                from '@angular/core';
+import { RouterModule, Routes}     from '@angular/router';
 
 import { ProdutoComponent }        from './produto/produto.component';
 import { HomeComponent }           from './home/home.component';
@@ -7,16 +7,19 @@ import { IntegranteComponent }     from './integrante/integrante.component';
 import { CabMovimentoComponent }   from "./cab-movimento/cab-movimento.component";
 import { ItemMovimentoComponent }  from "./item-movimento/item-movimento.component";
 import { FormIntegranteComponent } from "./integrante/form-integrante/form-integrante.component";
+import { FormProdutoComponent }    from "./produto/form-produto/form-produto.component";
 
 const routes: Routes = [
-    { path: ''               , redirectTo: '/home', pathMatch: 'full'},
-    { path: 'home'           , component: HomeComponent},
-    { path: 'produto'        , component: ProdutoComponent},
-    { path: 'integrante'     , component: IntegranteComponent},
-    { path: 'movimento'      , component: CabMovimentoComponent},
-    { path: 'item_movimento' , component: ItemMovimentoComponent},
-    { path: 'integrante/novo', component: FormIntegranteComponent},
-    { path: 'integrante/:id' , component: FormIntegranteComponent}
+    { path: ''                , redirectTo: '/home', pathMatch: 'full'},
+    { path: 'home'            , component: HomeComponent},
+    { path: 'produtos'        , component: ProdutoComponent},
+    { path: 'integrantes'     , component: IntegranteComponent},
+    { path: 'movimentos'      , component: CabMovimentoComponent},
+    { path: 'movimento_itens' , component: ItemMovimentoComponent},
+    { path: 'integrantes/novo', component: FormIntegranteComponent},
+    { path: 'integrantes/:id' , component: FormIntegranteComponent},
+    { path: 'produtos/novo'   , component: FormProdutoComponent},
+    { path: 'produtos/:id'    , component: FormProdutoComponent}
 ];
 
 @NgModule({

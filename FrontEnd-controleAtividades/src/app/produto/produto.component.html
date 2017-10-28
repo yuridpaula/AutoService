@@ -1,20 +1,39 @@
-<h1> Produtos </h1>
+<app-bread-crumb></app-bread-crumb>
 
-<div>
-    <table>
-        <thead>
-            <th>ID</th>
-            <th>Descrição</th>
-            <th>Valor Venda Sugerido</th>
-            <th>Estoque Atual</th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of produtos">
-                <td> {{item._id}}</td>
-                <td> {{item.descricao}}</td>
-                <td> {{item.valor_venda_sugerido}}</td>
-                <td> {{item.estoque_atual}}</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-11">
+                    <h2 class="panel-title"><strong>Tabela de Produtos</strong></h2>
+                </div>
+                <div class="col-md-1">
+                    <div class="btn-group btn-group-sm" role="group">
+                        <a [routerLink]="['/produtos/novo']" class="btn btn-primary glyphicon glyphicon-plus"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Descrição</th>
+                    <th>Valor Venda Sugerido</th>
+                    <th>Estoque Atual</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of produtos">
+                    <td>{{item.descricao}}</td>
+                    <td>{{item.valor_venda_sugerido}}</td>
+                    <td>{{item.estoque_atual}}</td>
+                    <td>
+                        <a class="glyphicon glyphicon-pencil" [routerLink]="['/produtos', item._id]"></a>
+                        <a class="glyphicon glyphicon-trash" (click)="apagar(item._id)"></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
