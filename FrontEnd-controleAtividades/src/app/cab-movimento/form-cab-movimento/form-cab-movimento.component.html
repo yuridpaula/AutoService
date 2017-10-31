@@ -1,0 +1,51 @@
+<app-bread-crumb></app-bread-crumb>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-10">
+                <h2 class="panel-title"><strong>Cadastro de Movimentos</strong></h2>
+            </div>
+            <div class="col-md-1">
+                <div class="btn-group btn-group-sm" role="group">
+                    <a [routerLink]="['/movimentos']" class="btn btn-info">Voltar para Lista</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form #produtoForm="ngForm" (ngSubmit)="enviar()">
+        <br>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-4">
+                <label for="integrante">Integrante</label>
+                <select id="integrante" name="integrante" class="form-control" [(ngModel)]="model.integrante">
+                    <option *ngFor="let item of integrantes | async" [ngValue]="item._id">
+                        {{item.integrante}} - {{item.nome}}
+                    </option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="tipo">Tipo</label>
+                <select id="tipo" name="tipo" class="form-control" [(ngModel)]="model.tipo">
+                        <option value="Compra">Compra</option>
+                        <option value="Venda">Venda</option>
+                    </select>
+            </div>
+            <div class="col-md-2">
+                <label for="integrante">Documento</label>
+
+                <input type="text" id="documento" name=documento [(ngModel)]="model.documento" class="form-control">
+            </div>
+        </div>
+        <br>
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col-md-11"></div>
+                <div class="col-md-1">
+                    <input type="submit" value="Enviar" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

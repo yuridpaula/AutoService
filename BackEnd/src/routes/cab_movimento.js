@@ -17,4 +17,8 @@ module.exports = function(application) {
         controller.excluirMovimento(application, req, res);
     });
 
+    application.put('/movimentos', function(req, res) {
+        controller.atualizarMovimento(application, req, res);
+    });
+
 }

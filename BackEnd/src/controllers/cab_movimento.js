@@ -2,7 +2,7 @@ var ObjectId = require('mongodb').ObjectId;
 
 var listarMovimento = (app, req, res) => {
     var Movimento = app.src.models.Cab_movimento;
-    Movimento.find().exec().then(
+    Movimento.find().populate('integrante').exec().then(
         function(data) {
 
             if (!data) {
@@ -37,6 +37,8 @@ var selecionarMovimentoPorId = function(app, req, res) {
     var id = req.params.id;
     var Movimento = app.src.models.Cab_movimento;
     Movimento.collection.findOne({ _id: new ObjectId(id) }, function(err, data) {
+        //Movimento.findOne({ _id: new ObjectId(id) }).populate('integrante').exec(function(err, data) {
+
         if (!data) {
             return res.status(404).json({ content: [] });
         }
@@ -65,9 +67,9 @@ var excluirMovimento = function(app, req, res) {
 
 var atualizarMovimento = function(app, req, res) {
     var id = req.body._id;
-    var Movimento = app.src.models.Movimento;
+    var Movimento = app.src.models.Cab_movimento;
     Movimento.findByIdAndUpdate(id, req.body).then(
-        function(movimento) {
+        function(movimnento) {
             res.status(200).json(movimento);
         },
         function(erro) {

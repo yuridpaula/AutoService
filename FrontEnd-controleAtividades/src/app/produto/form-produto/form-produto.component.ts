@@ -34,6 +34,7 @@ export class FormProdutoComponent implements OnInit {
       // um objeto já existente
       params => {
       if(params['id']) { 
+        console.log('entrou no if');
           this.id = params['id'];
           // Buscamos o objeto para edição
           this.service.obterPorId(this.id).subscribe(
@@ -46,6 +47,7 @@ export class FormProdutoComponent implements OnInit {
     )
 
   }
+
   enviar() {
     // Preservando o roteador para evitar a perda de referência ao objeto
     let roteador = this.router
