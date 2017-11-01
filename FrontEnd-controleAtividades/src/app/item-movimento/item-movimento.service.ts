@@ -11,6 +11,6 @@ export class ItemMovimentoService {
   }
 
   listarTodos(){
-    return this.http.get(environment.urlApi + '/item_movimento');
+    return this.http.get(environment.urlApi + '/movimento_itens');
   }
 }

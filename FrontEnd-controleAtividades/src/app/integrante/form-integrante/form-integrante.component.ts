@@ -50,7 +50,6 @@ export class FormIntegranteComponent implements OnInit {
   enviar() {
     // Preservando o roteador para evitar a perda de referência ao objeto
     let roteador = this.router
-
     this.service.salvar(this.model).subscribe(
       function () {
         roteador.navigate(['/integrantes'])

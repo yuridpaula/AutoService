@@ -28,9 +28,8 @@ export class IntegranteService {
   public salvar(dados: Integrante){
     //integrante já existe
     if(dados._id){
-      return this.http.put(environment.urlApi + '/integrantes', dados)
+      return this.http.put(environment.urlApi + '/integrantes', dados);
     }
-
     //recurso novo
     else {
       return this.http.post(environment.urlApi + '/integrantes', dados)

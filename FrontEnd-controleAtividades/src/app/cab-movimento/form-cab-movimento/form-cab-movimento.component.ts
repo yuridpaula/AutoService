@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { BreadCrumbComponent } from "../../bread-crumb/bread-crumb.component";
 import { Cab_movimento, CabMovimentoService } from "../cab-movimento.service";
-import { Integrante, IntegranteService } from "../../integrante/integrante.service";
 import { Router, ActivatedRoute } from '@angular/router';
+import { BreadCrumbComponent } from "../../bread-crumb/bread-crumb.component";
+import { Integrante, IntegranteService } from "../../integrante/integrante.service";
 
 @Component({
   selector: 'app-form-cab-movimento',
@@ -12,13 +12,13 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class FormCabMovimentoComponent implements OnInit {
 
-  private model: Cab_movimento = new Cab_movimento();
-  private integrantes: any;
-  private id: string;
+  private model: Cab_movimento = new Cab_movimento()
+  private integrantes: any
+  private id: string
 
   constructor(
+    private service: CabMovimentoService,
     private bd: BreadCrumbComponent,
-    private movService: CabMovimentoService,
     private intService: IntegranteService,
     private router: Router,
     private route: ActivatedRoute
@@ -36,7 +36,7 @@ export class FormCabMovimentoComponent implements OnInit {
       if(params['id']) { 
           this.id = params['id'];
           // Buscamos o objeto para edição
-          this.movService.obterPorId(this.id).subscribe(
+          this.service.obterPorId(this.id).subscribe(
             // O model com que iremos trabalhar não é mais um objeto vazio,
             // mas um objeto existente retornado pelo back-end
             (existente: Cab_movimento) => this.model = existente
@@ -49,28 +49,24 @@ export class FormCabMovimentoComponent implements OnInit {
   public load(){
     this.bd.setBreads([{'nome': 'HOME'      , 'link': '/home'},
                        {'nome': 'MOVIMENTOS', 'link': '/movimentos'},
-                       {'nome': 'CADASTRO'  , 'link': 'movimentos/novo'}]);
+                       {'nome': 'CADASTRO'  , 'link': '/movimentos/novo'}]);
     this.bd.setHeader('Cadastro de Movimentos');
-  }
-
-
-  enviar() {
-    // Preservando o roteador para evitar a perda de referência ao objeto
-    let roteador = this.router
-    
-    this.movService.salvar(this.model).subscribe(
-      function () {
-        console.log('tem que passar aqui, esta parando em algum lugar');
-        roteador.navigate(['/movimentos']);
-      },
-      function(erro){
-        console.log('entrou no erro');
-        console.error(erro);
-      }
-    )
   }
 
   public carregaIntegrantes(){
     this.integrantes = this.intService.listarTodos();
+  }
+
+  enviar() {
+    // Preservando o roteador para evitar a perda de referência ao objeto
+    let roteador = this.router
+    this.service.salvar(this.model).subscribe(
+      function () {
+        roteador.navigate(['/movimentos'])
+      },
+      function(erro){
+        console.error(erro)
+      }
+    )
   }
 }

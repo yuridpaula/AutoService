@@ -64,7 +64,6 @@ var excluirMovimento = function(app, req, res) {
     });
 }
 
-
 var atualizarMovimento = function(app, req, res) {
     var id = req.body._id;
     var Movimento = app.src.models.Cab_movimento;

@@ -1,30 +1,47 @@
-<app-cab-movimento></app-cab-movimento>
-
-<h1>Itens Movimento </h1>
-
-<div>
-    <table>
-        <thead>
-            <th>ID_Item</th>
-            <th>ID_Cab_movimento</th>
-            <th>ID_produto</th>
-            <th>Quantidade</th>
-            <th>Valor_pago</th>
-            <th>Data Movimento</th>
-            <th>Data Pagamento </th>
-            <th>Pago</th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of movimentos">
-                <td> {{item._id}}</td>
-                <td><a routerLink='/movimento'>{{item.cab_movimento}} </a></td>
-                <td><a routerLink='/produto'>{{item.produto}}</a> </td>
-                <td> {{item.quantidade}}</td>
-                <td> {{item.valor_pago}}</td>
-                <td> {{item.data_movimento}}</td>
-                <td> {{item.data_pagamento}}</td>
-                <td> {{item.pago}}</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-11">
+                    <h2 class="panel-title"><strong>Tabela de Itens</strong></h2>
+                </div>
+                <div class="col-md-1">
+                    <div class="btn-group btn-group-sm" role="group">
+                        <a [routerLink]="['/movimentos/item/novo']" class="btn btn-primary glyphicon glyphicon-plus"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID_Item</th>
+                    <th>ID_Cab_movimento</th>
+                    <th>ID_produto</th>
+                    <th>Quantidade</th>
+                    <th>Valor_pago</th>
+                    <th>Data Movimento</th>
+                    <th>Data Pagamento </th>
+                    <th>Pago</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of movimentos">
+                    <td> {{item._id}}</td>
+                    <td><a routerLink='/movimentos/{{item.cab_movimento}}'>{{item.cab_movimento}} </a></td>
+                    <td><a routerLink='/produtos/{{item.produto}}'>{{item.produto}}</a> </td>
+                    <td> {{item.quantidade}}</td>
+                    <td> {{item.valor_pago}}</td>
+                    <td> {{item.data_movimento}}</td>
+                    <td> {{item.data_pagamento}}</td>
+                    <td> {{item.pago}}</td>
+                    <td>
+                        <a class="glyphicon glyphicon-pencil" [routerLink]="['/movimentos/item', item._id]"></a>
+                        <a class="glyphicon glyphicon-trash" (click)="apagar(item._id)"></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

@@ -24,12 +24,10 @@ export class CabMovimentoService {
   public salvar(dados: Cab_movimento){
     //recurso existente
     if(dados._id){ 
-      console.log('atualizando')
-      return this.http.put(environment.urlApi + '/movimentos', dados)
+      return this.http.put(environment.urlApi + '/movimentos', dados);
     }
     //recurso novo
     else {
-      console.log('novo')
       return this.http.post(environment.urlApi + '/movimentos', dados)  
     }
   }
