@@ -13,4 +13,8 @@ module.exports = function(application) {
         controller.excluirItemMovimento(application, req, res);
     });
 
+    application.get('/movimento_itens/itens/:id', function(req, res) {
+        controller.listarItemIdCabMovimento(application, req, res);
+    });
+
 }

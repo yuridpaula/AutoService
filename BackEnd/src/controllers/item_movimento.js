@@ -60,9 +60,20 @@ var atualizarItemMovimento = function(app, req, res) {
     );
 }
 
+var listarItemIdCabMovimento = function(app, req, res) {
+    var ItemMovimento = app.src.models.Item_movimento;
+    ItemMovimento.find({ cab_movimento: req.params.id }, function(err, data) {
+        if (err) {
+            return console.error(err);
+        }
+        return res.status(200).json(data);
+    });
+}
+
 module.exports = {
     listarItemMovimento,
     inserirItemMovimento,
     excluirItemMovimento,
-    atualizarItemMovimento
+    atualizarItemMovimento,
+    listarItemIdCabMovimento
 }

@@ -60,13 +60,17 @@ export class FormCabMovimentoComponent implements OnInit {
   enviar() {
     // Preservando o roteador para evitar a perda de referência ao objeto
     let roteador = this.router
+    console.log('antes da função')
     this.service.salvar(this.model).subscribe(
-      function () {
+      function (teste) {
+        console.log('deu certo' + teste)
         roteador.navigate(['/movimentos'])
       },
       function(erro){
+        console.log('deu errado')
         console.error(erro)
       }
     )
+    console.log('depois da função')
   }
 }

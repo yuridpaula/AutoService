@@ -13,4 +13,8 @@ export class ItemMovimentoService {
   listarTodos(){
     return this.http.get(environment.urlApi + '/movimento_itens');
   }
+
+  listarTodosPorCabMovimento(id: string){
+
+  }
 }
