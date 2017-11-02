@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit }                  from '@angular/core';
 import { Cab_movimento, CabMovimentoService } from "../cab-movimento.service";
-import { Router, ActivatedRoute } from '@angular/router';
-import { BreadCrumbComponent } from "../../bread-crumb/bread-crumb.component";
-import { Integrante, IntegranteService } from "../../integrante/integrante.service";
+import { Router, ActivatedRoute }             from '@angular/router';
+import { BreadCrumbComponent }                from "../../bread-crumb/bread-crumb.component";
+import { Integrante, IntegranteService }      from "../../integrante/integrante.service";
+import { ItemMovimentoService }               from "../../item-movimento/item-movimento.service";
+import { ItemMovimentoComponent }             from "../../item-movimento/item-movimento.component";
 
 @Component({
   selector: 'app-form-cab-movimento',
   templateUrl: './form-cab-movimento.component.html',
   styleUrls: ['./form-cab-movimento.component.css'],
-  providers: [CabMovimentoService, IntegranteService]
+  providers: [CabMovimentoService, IntegranteService, ItemMovimentoComponent]
 })
 export class FormCabMovimentoComponent implements OnInit {
 
@@ -21,12 +23,11 @@ export class FormCabMovimentoComponent implements OnInit {
     private bd: BreadCrumbComponent,
     private intService: IntegranteService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private itens: ItemMovimentoComponent
   ) { }
 
   ngOnInit() {
-    this.load();
-
     this.carregaIntegrantes();
 
     this.route.params.subscribe(
@@ -44,13 +45,17 @@ export class FormCabMovimentoComponent implements OnInit {
         }
       }
     )
+    this.load();
   }
 
   public load(){
-    this.bd.setBreads([{'nome': 'HOME'      , 'link': '/home'},
-                       {'nome': 'MOVIMENTOS', 'link': '/movimentos'},
-                       {'nome': 'CADASTRO'  , 'link': '/movimentos/novo'}]);
+    this.itens.setIdCabMovimento(this.id);
+
+    this.bd.setBreads([{'nome': 'HOME'              , 'link': '/home'},
+                       {'nome': 'MOVIMENTOS'        , 'link': '/movimentos'},
+                       {'nome': 'CADASTRO CABECALHO', 'link': '/movimentos/novo'}]);
     this.bd.setHeader('Cadastro de Movimentos');
+
   }
 
   public carregaIntegrantes(){
@@ -60,17 +65,13 @@ export class FormCabMovimentoComponent implements OnInit {
   enviar() {
     // Preservando o roteador para evitar a perda de referência ao objeto
     let roteador = this.router
-    console.log('antes da função')
     this.service.salvar(this.model).subscribe(
-      function (teste) {
-        console.log('deu certo' + teste)
+      function () {
         roteador.navigate(['/movimentos'])
       },
       function(erro){
-        console.log('deu errado')
         console.error(erro)
       }
     )
-    console.log('depois da função')
   }
 }

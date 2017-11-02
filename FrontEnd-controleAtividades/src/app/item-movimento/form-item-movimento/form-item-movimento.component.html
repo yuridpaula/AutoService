@@ -1,0 +1,67 @@
+<app-bread-crumb></app-bread-crumb>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-10">
+                <h2 class="panel-title"><strong>Cadastro de Itens do Movimento</strong></h2>
+            </div>
+            <div class="col-md-1">
+                <div class="btn-group btn-group-sm" role="group">
+                    <a [routerLink]="['/movimentos']" class="btn btn-info">Voltar para Lista</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form #produtoForm="ngForm" (ngSubmit)="enviar()">
+        <br>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-4">
+                <label for="produto">Produto</label>
+                <select id="produto" name="produto" class="form-control" [(ngModel)]="model.produto">
+                    <option *ngFor="let item of ptodutos | async" [ngValue]="item._id">
+                        {{item.produto.descricao}}
+                    </option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="quantidade">Quantidade</label>
+                <input type="number" id="quantidade" name=quantidade [(ngModel)]="model.quantidade" class="form-control">
+            </div>
+            <div class="col-md-2">
+                <label for="valor_pago">Valor Pago</label>
+                <input type="number" id="valor_pago" name=valor_pago [(ngModel)]="model.valor_pago" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+                <label for="data_movimento">Data Movimento</label>
+                <input type="datepicker" id="data_movimento" name=data_movimento [(ngModel)]="model.data_movimento" class="form-control">
+            </div>
+            <div class="col-md-2">
+                <label for="data_pagamento">Data Pagamento</label>
+                <input type="datepicker" id="data_pagamento" name=data_pagamento [(ngModel)]="model.data_pagamento" class="form-control">
+            </div>
+            <div class="col-md-2">
+                <label for="data_movimento">Pago</label>
+                <select id="pago" name="pago" class="form-control" [(ngModel)]="model.pago">
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                </select>
+              </div>
+            
+            
+        </div>
+        <br>
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col-md-11"></div>
+                <div class="col-md-1">
+                    <input type="submit" value="Enviar" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

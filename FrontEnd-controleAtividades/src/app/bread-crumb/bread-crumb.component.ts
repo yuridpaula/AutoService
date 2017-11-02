@@ -1,7 +1,5 @@
 
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-
 
 @Component({
   selector: 'app-bread-crumb',
@@ -15,17 +13,12 @@ export class BreadCrumbComponent implements OnInit {
   private static headerStatic: string;
   public header: string;
 
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute
-  ) { }
+  constructor() { }
 
   ngOnInit() {
     this.bread = BreadCrumbComponent.breads;
     this.header = BreadCrumbComponent.headerStatic;
-  }
-
-  
+  } 
 
   public setBreads(data: any){
     BreadCrumbComponent.breads = data;

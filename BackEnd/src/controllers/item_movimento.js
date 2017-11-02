@@ -62,12 +62,21 @@ var atualizarItemMovimento = function(app, req, res) {
 
 var listarItemIdCabMovimento = function(app, req, res) {
     var ItemMovimento = app.src.models.Item_movimento;
-    ItemMovimento.find({ cab_movimento: req.params.id }, function(err, data) {
+    ItemMovimento.find({ /* cab_movimento: req.params.id */ }, function(err, data) {
         if (err) {
             return console.error(err);
         }
-        return res.status(200).json(data);
-    });
+        for (var i = data.length - 1; i >= 0; i--) {
+            if (data[i].cab_movimento != req.params.id) {
+                data.splice(i, 1);
+            }
+        }
+
+        if (data) {
+            return res.status(200).json(data);
+        }
+        return re.status(404).json('Itens não encontrados');
+    }).populate('produto');
 }
 
 module.exports = {

@@ -17,4 +17,8 @@ module.exports = function(application) {
         controller.listarItemIdCabMovimento(application, req, res);
     });
 
+    application.put('/movimento_itens', function(req, res) {
+        controller.atualizarItemMovimento(application, req, res);
+    });
+
 }

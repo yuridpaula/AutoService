@@ -22,6 +22,7 @@ import { ItemMovimentoService }      from './item-movimento/item-movimento.servi
 import { FormIntegranteComponent }   from './integrante/form-integrante/form-integrante.component';
 import { FormProdutoComponent }      from './produto/form-produto/form-produto.component';
 import { FormCabMovimentoComponent } from './cab-movimento/form-cab-movimento/form-cab-movimento.component';
+import { FormItemMovimentoComponent } from './item-movimento/form-item-movimento/form-item-movimento.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { FormCabMovimentoComponent } from './cab-movimento/form-cab-movimento/fo
     FormIntegranteComponent,
     BreadCrumbComponent,
     FormProdutoComponent,
-    FormCabMovimentoComponent
+    FormCabMovimentoComponent,
+    FormItemMovimentoComponent
   ],
   imports: [
     BrowserModule, AppRoutingModule, HttpClientModule, FormsModule
