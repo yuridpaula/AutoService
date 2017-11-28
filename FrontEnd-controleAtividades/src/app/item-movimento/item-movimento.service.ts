@@ -42,6 +42,10 @@ export class ItemMovimentoService {
     }
   }
 
+  public obterPorId(id: string){
+    return this.http.get(environment.urlApi + '/movimento_itens/itens/' + id);
+  }
+
   //ok
   public apagar(id: string){
     return this.http.delete(environment.urlApi + '/movimento_itens/' + id)

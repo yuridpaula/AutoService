@@ -14,15 +14,23 @@ export class ItemMovimentoComponent implements OnInit {
   constructor(private itemMovimentoService: ItemMovimentoService) { }
 
   ngOnInit() {
-    this.atualizaLista();
-  } 
+    // this.atualizaLista();
+    this.getItemMovimento();
+  }
 
-  public atualizaLista(){
-    if(ItemMovimentoComponent.id_cab_movimento){
-      this.itemMovimentoService.listarTodosPorCabMovimento(ItemMovimentoComponent.id_cab_movimento).subscribe(data=>{
-        this.movimentos = data;
-      });
-    }
+  // public atualizaLista(){
+  //   if(ItemMovimentoComponent.id_cab_movimento){
+  //     this.itemMovimentoService.listarTodosPorCabMovimento(ItemMovimentoComponent.id_cab_movimento).subscribe(data=>{
+  //       console.log(data);
+  //       this.movimentos = data;
+  //     });
+  //   }
+  // }
+
+  public getItemMovimento() {
+    this.itemMovimentoService.listarTodos().subscribe(data => {
+      this.movimentos = data;
+    })
   }
 
   public setIdCabMovimento(id: string){
@@ -36,7 +44,7 @@ export class ItemMovimentoComponent implements OnInit {
   public apagar(id: string){
     if(confirm('Deseja realmente excluir este recurso?')) {
       this.itemMovimentoService.apagar(id).subscribe(
-        () => this.atualizaLista(),
+        () => this.getItemMovimento(),
         erro => console.error(erro)
       )
     }

@@ -4,24 +4,26 @@
     <div class="panel-heading">
         <div class="row">
             <div class="col-md-10">
-                <h2 class="panel-title"><strong>Cadastro de Itens do Movimento</strong></h2>
+                <h2 class="panel-title">
+                    <strong>Cadastro de Itens do Movimento</strong>
+                </h2>
             </div>
             <div class="col-md-1">
                 <div class="btn-group btn-group-sm" role="group">
-                    <a [routerLink]="['/movimentos']" class="btn btn-info">Voltar para Lista</a>
+                    <a [routerLink]="['/movimento_itens']" class="btn btn-info">Voltar para Lista</a>
                 </div>
             </div>
         </div>
     </div>
-    <form #produtoForm="ngForm" (ngSubmit)="enviar()">
+    <form #itemMovimentoForm="ngForm" (ngSubmit)="enviar()">
         <br>
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-4">
                 <label for="produto">Produto</label>
                 <select id="produto" name="produto" class="form-control" [(ngModel)]="model.produto">
-                    <option *ngFor="let item of ptodutos | async" [ngValue]="item._id">
-                        {{item.produto.descricao}}
+                    <option *ngFor="let item of produtos" [ngValue]="item._id">
+                        {{item.descricao}}
                     </option>
                 </select>
             </div>
@@ -38,11 +40,11 @@
             <div class="col-md-1"></div>
             <div class="col-md-2">
                 <label for="data_movimento">Data Movimento</label>
-                <input type="datepicker" id="data_movimento" name=data_movimento [(ngModel)]="model.data_movimento" class="form-control">
+                <input type="date" id="data_movimento" name=data_movimento [(ngModel)]="model.data_movimento" class="form-control">
             </div>
             <div class="col-md-2">
                 <label for="data_pagamento">Data Pagamento</label>
-                <input type="datepicker" id="data_pagamento" name=data_pagamento [(ngModel)]="model.data_pagamento" class="form-control">
+                <input type="date" id="data_pagamento" name=data_pagamento [(ngModel)]="model.data_pagamento" class="form-control">
             </div>
             <div class="col-md-2">
                 <label for="data_movimento">Pago</label>
@@ -50,9 +52,9 @@
                     <option value="true">True</option>
                     <option value="false">False</option>
                 </select>
-              </div>
-            
-            
+            </div>
+
+
         </div>
         <br>
         <div class="panel-footer">
