@@ -2,21 +2,20 @@ var ObjectId = require('mongodb').ObjectId;
 
 var listarProduto = (app, req, res) => {
     var Produto = app.src.models.Produto;
-    Produto.find().exec().then(
-        function(data) {
-
-            if (!data) {
-                return res.status(404).json({ content: [] });
-            }
-            if (data) {
-                res.json(data);
-            }
-        },
-        function(erro) {
+    Produto.find( function(erro, data) {
+        if(erro) {
             console.error(erro);
-            res.status(500).json(erro);
+            return res.status(500).json(erro);
         }
-    );
+
+        if (!data) {
+            return res.status(404).json({ content: [] });
+        }
+        
+        if (data) {
+            res.json(data);
+        }
+    });
 }
 
 var inserirProduto = function(app, req, res) {

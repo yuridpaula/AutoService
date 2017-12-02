@@ -13,10 +13,14 @@ module.exports = function(application) {
         controller.excluirItemMovimento(application, req, res);
     });
 
-    application.get('/movimento_itens/itens/:id', function(req, res) {
-        controller.listarItemIdCabMovimento(application, req, res);
-    });
+    // application.get('/movimento_itens/itens/:id', function(req, res) {
+    //     controller.listarItemIdCabMovimento(application, req, res);
+    // });
 
+    application.get('/movimento_itens/itens/:id', function(req, res) {
+        controller.listarItemMovimentoPorId(application, req, res);
+    });
+    
     application.put('/movimento_itens', function(req, res) {
         controller.atualizarItemMovimento(application, req, res);
     });

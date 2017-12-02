@@ -2,8 +2,8 @@ var ObjectId = require('mongodb').ObjectId;
 
 var listarItemMovimento = (app, req, res) => {
     var Movimento = app.src.models.Item_movimento;
-    Movimento.find().exec().then(
-        function(data) {
+    Movimento.find().populate('produto').exec().then(
+        function (data) {
 
             if (!data) {
                 return res.status(404).json({ content: [] });
@@ -12,18 +12,36 @@ var listarItemMovimento = (app, req, res) => {
                 res.json(data);
             }
         },
-        function(erro) {
+        function (erro) {
             console.error(erro);
             res.status(500).json(erro);
         }
     );
 }
 
-var inserirItemMovimento = function(app, req, res) {
+var listarItemMovimentoPorId = (app, req, res) => {
+    var Movimento = app.src.models.Item_movimento;
+    Movimento.findById(req.params.id).exec().then(
+        function (data) {
+            if (!data) {
+                return res.status(404).json({ content: [] });
+            }
+            if (data) {
+                res.status(200).json(data);
+            }
+        },
+        function(erro) {
+            console.error(erro);
+            return res.status(500).json(erro);
+        }
+    );
+}
+
+var inserirItemMovimento = function (app, req, res) {
     var Movimento = app.src.models.Item_movimento;
     var dados = req.body;
 
-    Movimento.collection.insert(dados, function(err, data) {
+    Movimento.collection.insert(dados, function (err, data) {
         if (data) {
             return res.status(200).json(dados._id);
         }
@@ -32,10 +50,10 @@ var inserirItemMovimento = function(app, req, res) {
 
 }
 
-var excluirItemMovimento = function(app, req, res) {
+var excluirItemMovimento = function (app, req, res) {
     var id = req.params.id;
     var Movimento = app.src.models.Item_movimento;
-    Movimento.collection.remove({ _id: new ObjectId(id) }, function(err, data) {
+    Movimento.collection.remove({ _id: new ObjectId(id) }, function (err, data) {
 
         if (data) {
             return res.status(200).json({ content: { status: "OK", message: "Excluido com sucesso" } });
@@ -46,23 +64,23 @@ var excluirItemMovimento = function(app, req, res) {
 }
 
 
-var atualizarItemMovimento = function(app, req, res) {
+var atualizarItemMovimento = function (app, req, res) {
     var id = req.body._id;
     var ItemMovimento = app.src.models.Item_movimento;
     ItemMovimento.findByIdAndUpdate(id, req.body).then(
-        function(item) {
+        function (item) {
             res.status(200).json(item);
         },
-        function(erro) {
+        function (erro) {
             console.error(erro);
             res.status(404).json('Item Movimento nÃ£o encontrado para atualizar!')
         }
     );
 }
 
-var listarItemIdCabMovimento = function(app, req, res) {
+var listarItemIdCabMovimento = function (app, req, res) {
     var ItemMovimento = app.src.models.Item_movimento;
-    ItemMovimento.find({ /* cab_movimento: req.params.id */ }, function(err, data) {
+    ItemMovimento.find({ /* cab_movimento: req.params.id */ }, function (err, data) {
         if (err) {
             return console.error(err);
         }
@@ -75,12 +93,13 @@ var listarItemIdCabMovimento = function(app, req, res) {
         if (data) {
             return res.status(200).json(data);
         }
-        return re.status(404).json('Itens não encontrados');
+        return res.status(404).json('Itens nï¿½o encontrados');
     }).populate('produto');
 }
 
 module.exports = {
     listarItemMovimento,
+    listarItemMovimentoPorId,
     inserirItemMovimento,
     excluirItemMovimento,
     atualizarItemMovimento,
