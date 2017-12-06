@@ -3,6 +3,7 @@ import { Item_movimento, ItemMovimentoService } from "../item-movimento.service"
 import { BreadCrumbComponent }                  from "../../bread-crumb/bread-crumb.component";
 import { ItemMovimentoComponent }               from "../item-movimento.component";
 import { ProdutoService }                       from "../../produto/produto.service";
+import { CabMovimentoService } from "../../cab-movimento/cab-movimento.service";
 import { Router, ActivatedRoute }               from "@angular/router";
 
 @Component({
@@ -12,9 +13,10 @@ import { Router, ActivatedRoute }               from "@angular/router";
   providers: [ItemMovimentoService, ItemMovimentoComponent]
 })
 export class FormItemMovimentoComponent implements OnInit {
-  private model: Item_movimento = new Item_movimento()
+  private model: Item_movimento = new Item_movimento();
   private idCabMovimento: string;
   private produtos: any;
+  private cabecalhos: any;
   private id: string;
 
   constructor(
@@ -22,27 +24,31 @@ export class FormItemMovimentoComponent implements OnInit {
     private imcComponent: ItemMovimentoComponent,
     private service: ItemMovimentoService,
     private pService: ProdutoService,
+    private cabMovimentoService: CabMovimentoService,
     private router: Router,
     private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
     this.carregaProdutos();
+    this.carregarCabecalhos();
     this.load();
 
     this.route.params.subscribe(
       // Se existir um parâmetro id, significa que queremos editar
       // um objeto já existente
       params => {
-      if(params['id']) { 
-          this.id = params['id'];
-          // Buscamos o objeto para edição
-          this.service.obterPorId(this.id).subscribe(
-            // O model com que iremos trabalhar não é mais um objeto vazio,
-            // mas um objeto existente retornado pelo back-end
-            (existente: Item_movimento) => { console.log(existente); this.model = existente }
-          )
-        }
+        if(params['id']) { 
+            this.id = params['id'];
+            // Buscamos o objeto para edição
+            this.service.obterPorId(this.id).subscribe(
+              // O model com que iremos trabalhar não é mais um objeto vazio,
+              // mas um objeto existente retornado pelo back-end
+              (existente: Item_movimento) => { 
+                this.model = existente 
+              }
+            )
+          }
       }
     )
   }
@@ -64,12 +70,21 @@ export class FormItemMovimentoComponent implements OnInit {
     })
   }
 
+  public carregarCabecalhos(){
+    this.cabMovimentoService.listarTodos().subscribe(data=>{
+      this.cabecalhos = data;
+        });
+  }
+
+
   enviar() {
     // Preservando o roteador para evitar a perda de referência ao objeto
     let roteador = this.router
+   let idCab = this.model.cab_movimento
+    console.log(this.idCabMovimento)
     this.service.salvar(this.model).subscribe(
       function () {
-        roteador.navigate(['/movimento_itens'])
+        roteador.navigate(['/movimentos/' + idCab])
       },
       function(erro){
         console.error(erro)

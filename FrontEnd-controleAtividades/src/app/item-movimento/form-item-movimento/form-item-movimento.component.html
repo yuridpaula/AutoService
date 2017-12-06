@@ -10,7 +10,7 @@
             </div>
             <div class="col-md-1">
                 <div class="btn-group btn-group-sm" role="group">
-                    <a [routerLink]="['/movimento_itens']" class="btn btn-info">Voltar para Lista</a>
+                    <a [routerLink]="['/movimentos', model.cab_movimento]" class="btn btn-info">Voltar para Lista</a>
                 </div>
             </div>
         </div>
@@ -19,11 +19,22 @@
         <br>
         <div class="row">
             <div class="col-md-1"></div>
+            <div class="col-md-6">
+                <label for="cabecalho">Movimento</label>
+                <select id="cabecalho" name="cabecalho" class="form-control" [(ngModel)]="model.cab_movimento">
+                    <option *ngFor="let item of cabecalhos" [ngValue]="item._id">
+                        {{item.integrante.integrante}} - {{item.integrante.nome}} - {{item.tipo}} - {{item.documento}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
             <div class="col-md-4">
                 <label for="produto">Produto</label>
                 <select id="produto" name="produto" class="form-control" [(ngModel)]="model.produto">
                     <option *ngFor="let item of produtos" [ngValue]="item._id">
-                        {{item.descricao}}
+                        {{item.descricao}} (Valor Venda Sugerido: {{item.valor_venda_sugerido}} )
                     </option>
                 </select>
             </div>
@@ -32,7 +43,7 @@
                 <input type="number" id="quantidade" name=quantidade [(ngModel)]="model.quantidade" class="form-control">
             </div>
             <div class="col-md-2">
-                <label for="valor_pago">Valor Pago</label>
+                <label for="valor_pago">Valor</label>
                 <input type="number" id="valor_pago" name=valor_pago [(ngModel)]="model.valor_pago" class="form-control">
             </div>
         </div>

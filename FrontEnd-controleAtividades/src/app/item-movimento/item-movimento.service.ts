@@ -43,7 +43,10 @@ export class ItemMovimentoService {
   }
 
   public obterPorId(id: string){
-    return this.http.get(environment.urlApi + '/movimento_itens/itens/' + id);
+    console.log('dentro do obter por id: ' + id);
+    let data =  this.http.get(environment.urlApi + '/movimento_itens/' + id);
+    console.log(data);
+    return data;
   }
 
   //ok

@@ -17,7 +17,6 @@ const routes: Routes = [
     { path: 'produtos'            , component: ProdutoComponent},
     { path: 'integrantes'         , component: IntegranteComponent},
     { path: 'movimentos'          , component: CabMovimentoComponent},
-    { path: 'movimento_itens'     , component: ItemMovimentoComponent},
     { path: 'integrantes/novo'    , component: FormIntegranteComponent},
     { path: 'integrantes/:id'     , component: FormIntegranteComponent},
     { path: 'produtos/novo'       , component: FormProdutoComponent},
