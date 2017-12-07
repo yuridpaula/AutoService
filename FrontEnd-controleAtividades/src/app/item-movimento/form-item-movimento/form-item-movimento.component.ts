@@ -48,21 +48,22 @@ export class FormItemMovimentoComponent implements OnInit {
                 this.model = existente 
               }
             )
+          } else {
+            this.model.cab_movimento = this.idCabMovimento;
           }
       }
     )
   }
 
   public load(){
+    this.idCabMovimento = this.imcComponent.getIdCabMovimento();
+    
     this.bd.setHeader('Cadastro de Itens do Movimento');
     this.bd.setBreads([{'nome': 'HOME'              , 'link': '/home'},
                        {'nome': 'MOVIMENTOS'        , 'link': '/movimentos'},
-                       {'nome': 'CADASTRO CABECALHO', 'link': '/movimentos/novo'},
+                       {'nome': 'CADASTRO CABECALHO', 'link': '/movimentos/' + this.idCabMovimento},
                        {'nome': 'CADASTRO ITEM'     , 'link': '/movimentos/item/novo'}]);
-  
-    this.idCabMovimento = this.imcComponent.getIdCabMovimento();
-    
-  }
+    }
 
   public carregaProdutos(){
     this.pService.listarTodos().subscribe( data => {

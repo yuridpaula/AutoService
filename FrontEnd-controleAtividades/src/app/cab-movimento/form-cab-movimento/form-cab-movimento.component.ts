@@ -43,7 +43,7 @@ export class FormCabMovimentoComponent implements OnInit {
             (existente: Cab_movimento) => this.model = existente
           )
         }
-      }
+      } 
     )
     this.load();
   }
